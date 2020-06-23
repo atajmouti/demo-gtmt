@@ -1,19 +1,121 @@
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@angular/material/theming';
+@include mat-core();
 
+
+$gtmt-primary: mat-palette($mat-blue);
+$gtmt-accent: mat-palette($mat-pink, 500, 900, A100);
+$gtmt-warn: mat-palette($mat-deep-orange);
+$gtmt-theme: mat-light-theme($gtmt-primary, $gtmt-accent, $gtmt-warn);
+
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$gtmt-typography: mat-typography-config($font-family: 'Lato Regular',
+    $headline: mat-typography-level(32px, 48px, 700),
+    $body-1: mat-typography-level(16px, 24px, 500));
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($gtmt-typography);
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/assets/fonts/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(/assets/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+        url(/assets/fonts/MaterialIcons-Regular.woff) format('woff'),
+        url(/assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+@font-face {
+    font-family: 'Lato Black';
+    src: url('./assets/fonts/Lato-Black.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Semibold';
+    src: url('./assets/fonts/Lato-Semibold.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Regular';
+    src: url('./assets/fonts/Lato-Regular.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Italic';
+    src: url('./assets/fonts/Lato-Italic.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Bold';
+    src: url('./assets/fonts/Lato-Bold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+
+
+html,
 body {
-  font-family: Roboto, Arial, sans-serif;
-  margin: 0;
+    border: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'Lato Regular', 'Material Icons';
+    color: #354052;
+    letter-spacing: 0;
+    line-height: 21px;    
+    font-weight: 600;
+    font-size: 16px !important;
+    background-color: #F1F4F8;
+    // la taille de police par défaut du navigateur est de 15px pixels, 
+    // on peut donc en déduire que 1rem = 15 px, 2rem = 30px, etc.   
+    //font-size: 62.5% !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
-.basic-container {
-  padding: 30px;
-}
-.version-info {
-  font-size: 8pt;
-  float: right;
-  margin: 8px;
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 
-/**  Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+@include angular-material-theme($gtmt-theme);
