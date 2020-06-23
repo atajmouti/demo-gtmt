@@ -9,8 +9,6 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './app/material-module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
-
-import {StepperErrorsExample} from './app/stepper-errors-example';
 import {DemoGTMT} from './app/demo-gtmt';
 
 @NgModule({
@@ -23,8 +21,8 @@ import {DemoGTMT} from './app/demo-gtmt';
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [DemoGTMT,StepperErrorsExample],
-  declarations: [DemoGTMT,StepperErrorsExample],
+  entryComponents: [DemoGTMT],
+  declarations: [DemoGTMT],
   bootstrap: [DemoGTMT],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
