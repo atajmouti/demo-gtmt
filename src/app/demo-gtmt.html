@@ -102,13 +102,14 @@
             </mat-radio-group>
           </mat-grid-list>
 
-          <mat-grid-list cols="25" rowHeight="60px">
+          <mat-grid-list cols="25" rowHeight="50px">
             <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
-              <mat-form-field>
-                <mat-label>Date et heure de lancement</mat-label>
-                <input matInput type="datetime-local" placeholder="Date et heure de lancement"
-                  formControlName="startdate" required>
-              </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Date et heure de lancement</mat-label>
+                    <input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date et heure de lancementn">
+                    <mat-datepicker-toggle matSuffix [for]="startdatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startdatePicker></mat-datepicker>
+                  </mat-form-field>                            
             </mat-grid-tile>
 
             <mat-grid-tile  colspan="1" rowspan="8">
@@ -116,7 +117,7 @@
 
             <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
 
-              <mat-grid-list cols="4" rowHeight="60px">
+              <mat-grid-list cols="4" rowHeight="50px">
 
                 <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="3">
                   <mat-radio-button value="Hebdomadaire">
