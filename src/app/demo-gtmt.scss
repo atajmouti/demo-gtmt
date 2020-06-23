@@ -1,3 +1,196 @@
-.mat-form-field {
-  margin-top: 16px;
+.gtmt-sidenav-container {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
 }
+
+h1 {
+
+    font-family: "Lato Black"
+}
+
+.gtmt-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: #FFE582;
+}
+
+.gtmt-header .gtmt-logo {
+    height: 160px;
+    width: 160px;
+}
+
+
+mat-grid-list {
+    width: 100%;
+}
+
+:host ::ng-deep .gtmt-header .mat-grid-tile .mat-figure {
+    justify-content: flex-start;
+}
+
+
+:host ::ng-deep .gtmt-header .gtmt-flex-end .mat-figure {
+    margin-right: 30px;
+    flex-direction: row-reverse;
+}
+
+.gtmt-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background: #F1F4F8;
+}
+
+.blx-navbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.mat-raised-button:hover {
+    background-color: 'blue';
+}
+
+
+.mat-stepper-horizontal {
+     margin-top: 8px;
+}
+
+
+:host ::ng-deep .gtmt-box  {
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 10px;;
+}
+
+
+:host ::ng-deep .gtmt-box .mat-form-field {
+    width: fit-content;
+}
+
+
+form {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+:host ::ng-deep .mat-form-field {
+    width: 100%;
+    margin: 0 10px 0;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    width: auto;
+}
+
+.gtmt-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.example-margin {
+    margin: 10px;
+}
+
+
+.blx-fill-space {
+    flex: 1 1 auto;
+}
+
+.gtmt-button-container {
+    display: flex;
+    justify-content: center;
+    .mat-icon-button  {
+        color: black;
+    }
+    mat-icon {
+        font-size: 32px;
+        color: black
+    }
+}
+
+.gtmt-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    button {
+        margin-right: 15px;
+    }
+}
+
+
+// Stepper styles
+
+:host ::ng-deep .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit,
+:host ::ng-deep .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit,
+:host ::ng-deep .mat-step-icon .mat-step-icon-state-edit {
+    background-color: #e91e63;
+}
+
+:host ::ng-deep .mat-step-icon {
+    height: 36px;
+    width: 36px;
+}
+
+:host ::ng-deep .mat-warn .mat-input-element,
+.mat-form-field-invalid .mat-input-element {
+    caret-color: #e91e63;
+}
+
+:host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: #e91e63;
+}
+
+:host ::ng-deep .mat-step-label-selected
+{
+   font-size: 18px !important;
+   font-weight: 900;
+   font-family: "Lato Bold" !important;
+}
+
+:host ::ng-deep .mat-step-label {
+    font-size: 16px;
+    font-weight: 900;
+    font-family: "Lato Regular"
+}
+
+
+:host ::ng-deep .mat-raised-button {
+    background-color: #F1F4F8;
+    color: #354052;
+}
+
+:host ::ng-deep .mat-raised-button:hover {
+    background-color: #FFFFFF;
+    color: #2196f3;
+}
+
+:host ::ng-deep .gtmt-flex-col .mat-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+:host ::ng-deep .gtmt-flex-start .mat-figure {
+    justify-content: flex-start;
+    margin-left: 15px;
+}
+
+
