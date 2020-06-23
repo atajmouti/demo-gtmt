@@ -86,7 +86,7 @@
       <mat-step [stepControl]="form">
         <form [formGroup]="form">
           <ng-template color="primary" matStepLabel>Fréquence d'envoi</ng-template>
-          <mat-grid-list cols="12" rowHeight="60px">
+          <mat-grid-list cols="12" rowHeight="40px">
             <mat-radio-group>
               <mat-grid-tile colspan="6" rowspan="1">
                 <mat-radio-button class="example-margin" value="oneshot">
@@ -101,9 +101,8 @@
               </mat-grid-tile>
             </mat-radio-group>
           </mat-grid-list>
-
-          <mat-grid-list cols="25" rowHeight="50px">
-            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
+          <mat-grid-list cols="25" rowHeight="10px">
+            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
                   <mat-form-field appearance="outline">
                     <mat-label>Date et heure de lancement</mat-label>
                     <input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date et heure de lancementn">
@@ -115,29 +114,29 @@
             <mat-grid-tile  colspan="1" rowspan="8">
             </mat-grid-tile>
 
-            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
+            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
 
-              <mat-grid-list cols="4" rowHeight="50px">
+              <mat-grid-list cols="4" rowHeight="10px">
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="3">
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
                   <mat-radio-button value="Hebdomadaire">
                     Hebdomadaire
                   </mat-radio-button>
                 </mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="3">
+                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
                   <mat-radio-button *ngFor="let day of days" value="day">
                     {{day}}
                   </mat-radio-button>
                 </mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="3">
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
                   <mat-radio-button value="Mensuel">
                     Mensuel
                   </mat-radio-button>
                 </mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="3">
+                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
                   <mat-radio-button value="Mensuel">
                     Le premier Lundi du mois
                   </mat-radio-button>
@@ -146,7 +145,7 @@
                   </mat-radio-button>
                 </mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="2">
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="8">
                   <mat-form-field appearance="outline">
                     <mat-label>Date de fin</mat-label>
                     <input matInput [matDatepicker]="EndDatePicker" formControlName="EndDate" placeholder="Date de fin">
