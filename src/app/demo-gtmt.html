@@ -1,41 +1,219 @@
-<mat-horizontal-stepper linear #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+<!-- Header  -->
+<mat-toolbar class="gtmt-header">
+
+  <mat-grid-list cols="6" rowHeight="80px">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-icon class="gtmt-logo" svgIcon="logolp_part"></mat-icon>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="4" rowspan="1">
+      <h1>
+        GTMT > Création campagne
+      </h1>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
+      <div class="gtmt-button-container">
+        <button mat-icon-button>
+          Aide
+          <mat-icon>help_outline</mat-icon>
+        </button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-               required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-grid-tile>
 
 
-<!-- Copyright 2019 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
+
+  </mat-grid-list>
+
+
+</mat-toolbar>
+
+<!-- Content -->
+<mat-sidenav-container class="gtmt-sidenav-container ">
+  <mat-sidenav-content>
+
+    <mat-horizontal-stepper [linear]="isLinear" #stepper color="accent">
+      <mat-step [stepControl]="form">
+        <form [formGroup]="form">
+          <ng-template matStepLabel>
+            Identification de la campagne courrier
+          </ng-template>
+          <mat-grid-list cols="5" rowHeight="60px">
+            <!-- Nom de la campgane courrier -->
+            <mat-grid-tile colspan="1" rowspan="1">
+              <mat-form-field>
+                <mat-label>Nom de la campgane courrier</mat-label>
+                <input matInput placeholder="Nom de la campgane courrier" formControlName="name" required>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- Campagne Template -->
+            <mat-grid-tile colspan="2" rowspan="1">
+              <mat-form-field>
+                <mat-label>Utiliser une campagne existante pour initier les paramètres</mat-label>
+                <mat-select formControlName="template" name="template">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let campagne of campagnes" [value]="campagne.name">
+                    {{campagne.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2" rowspan="1">
+            </mat-grid-tile>
+
+            <!-- Description -->
+            <mat-grid-tile colspan="3" rowspan="4">
+              <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Description" cdkTextareaAutosize
+                  cdkAutosizeMinRows="5"></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <div class="gtmt-flex-row">
+            <button mat-raised-button color="primary" matStepperNext>
+              <mat-icon>keyboard_arrow_right</mat-icon>
+              Etape suivante
+            </button>
+          </div>
+
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="form">
+        <form [formGroup]="form">
+          <ng-template color="primary" matStepLabel>Fréquence d'envoi</ng-template>
+          <mat-grid-list cols="12" rowHeight="60px">
+            <mat-radio-group>
+              <mat-grid-tile colspan="6" rowspan="1">
+                <mat-radio-button class="example-margin" value="oneshot">
+                  Une seule fois
+                </mat-radio-button>
+              </mat-grid-tile>
+
+              <mat-grid-tile colspan="6" rowspan="1">
+                <mat-radio-button class="example-margin" value="recurrent">
+                  Récurrent
+                </mat-radio-button>
+              </mat-grid-tile>
+            </mat-radio-group>
+          </mat-grid-list>
+
+          <mat-grid-list cols="25" rowHeight="60px">
+            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
+              <mat-form-field>
+                <mat-label>Date et heure de lancement</mat-label>
+                <input matInput type="datetime-local" placeholder="Date et heure de lancement"
+                  formControlName="startdate" required>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile  colspan="1" rowspan="8">
+            </mat-grid-tile>
+
+            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="8">
+
+              <mat-grid-list cols="4" rowHeight="60px">
+
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="3">
+                  <mat-radio-button value="Hebdomadaire">
+                    Hebdomadaire
+                  </mat-radio-button>
+                </mat-grid-tile>
+
+                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="3">
+                  <mat-radio-button *ngFor="let day of days" value="day">
+                    {{day}}
+                  </mat-radio-button>
+                </mat-grid-tile>
+
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="3">
+                  <mat-radio-button value="Mensuel">
+                    Mensuel
+                  </mat-radio-button>
+                </mat-grid-tile>
+
+                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="3">
+                  <mat-radio-button value="Mensuel">
+                    Le premier Lundi du mois
+                  </mat-radio-button>
+                  <mat-radio-button value="Mensuel">
+                    Le dernier Lundi du mois
+                  </mat-radio-button>
+                </mat-grid-tile>
+
+                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="2">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Date de fin</mat-label>
+                    <input matInput [matDatepicker]="EndDatePicker" formControlName="EndDate" placeholder="Date de fin">
+                    <mat-datepicker-toggle matSuffix [for]="EndDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #EndDatePicker></mat-datepicker>
+                  </mat-form-field>
+                </mat-grid-tile>
+
+              </mat-grid-list>
+
+              <!-- <mat-radio-group>
+                <mat-radio-button class="example-margin" value="weekly">
+                  Hebdomadaire
+                </mat-radio-button>
+                <mat-radio-button class="example-margin" value="monthly">
+                  Mensuel
+                </mat-radio-button>
+              </mat-radio-group> -->
+
+
+            </mat-grid-tile>
+
+
+
+
+          </mat-grid-list>
+
+          <div class="gtmt-flex-row">
+            <button mat-raised-button matStepperPrevious>
+              <mat-icon>keyboard_arrow_left</mat-icon>
+              Etape précédente
+            </button>
+            <button mat-raised-button matStepperNext>
+              Etape suivante
+              <mat-icon>keyboard_arrow_right
+              </mat-icon>
+            </button>
+          </div>
+
+        </form>
+
+
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Fin</ng-template>
+        <p>You are now done.</p>
+        <div class="gtmt-flex-row">
+          <button mat-raised-button matStepperPrevious>
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            Etape précédente
+          </button>
+          <button mat-raised-button (click)="stepper.reset()">
+            Réinitialiser
+            <mat-icon> format_color_reset</mat-icon>
+          </button>
+        </div>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- Footer -->
+<mat-toolbar class="gtmt-footer">
+  <div class="blx-navbar-logo">
+    <img alt="Eloqua Logo" style="width: 100px;" src="assets/eloqua.png" />
+  </div>
+</mat-toolbar>
