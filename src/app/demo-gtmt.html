@@ -9,7 +9,7 @@
 
 			<mat-grid-tile colspan="4" rowspan="1">
 				<h1>
-					Conception de la campagne
+					Conception de la campagne 
 				</h1>
 			</mat-grid-tile>
 
@@ -36,23 +36,26 @@
 					</ng-template>
 					<mat-grid-list cols="5" rowHeight="60px">
 						<!-- Nom de la campgane courrier -->
-						<mat-grid-tile colspan="1" rowspan="1">
-							<mat-form-field>
+						<mat-grid-tile colspan="1" rowspan="2">
+							<mat-form-field appearance="outline">
 								<mat-label>Nom de la campgane courrier</mat-label>
 								<input matInput placeholder="Nom de la campgane courrier" formControlName="name" required>
               </mat-form-field>
 						</mat-grid-tile>
 
 						<!-- Campagne Template -->
-						<mat-grid-tile colspan="2" rowspan="1">
-							<mat-form-field>
+						<mat-grid-tile colspan="2" rowspan="2">
+							<mat-form-field appearance="outline">
+								<mat-label>Utiliser une campagne existante pour initier les paramètres
+
+								</mat-label>
 								<input type="text"
                   placeholder="Utiliser une campagne existante pour initier les paramètres"
                   matInput
                   [formControl]="template"
                   [matAutocomplete]="auto">
 								<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-									<mat-option *ngFor="let campagne of campagnes | async" [value]="campagne">
+									<mat-option *ngFor="let campagne of filteredOptions  | async" [value]="campagne">
 										{{campagne}}
 									</mat-option>
 								</mat-autocomplete>
