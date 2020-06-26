@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
@@ -19,12 +21,12 @@ export class DemoGTMT implements OnInit {
   title = 'ng-gtmt';
 
 
-  campagnes: Campagne[] = [
-    {Id: '1', name: 'Campagne courrier 1'},
-    {Id: '2', name: 'Campagne courrier 2'},
-    {Id: '3', name: 'Campagne courrier 3'},
-    {Id: '4', name: 'Campagne courrier 4'},
-    {Id: '5', name: 'Campagne courrier 5'},
+  campagnes = [
+    'Campagne courrier 1',
+    'Campagne courrier 2',
+    'Campagne courrier 3',
+    'Campagne courrier 4',
+    'Campagne courrier 5'
   ];
 
   template = new FormControl();
@@ -34,6 +36,7 @@ export class DemoGTMT implements OnInit {
 
   isLinear: true;
   form: FormGroup;
+  filteredOptions: Observable<string[]>;
 
 
   constructor(
@@ -59,9 +62,15 @@ export class DemoGTMT implements OnInit {
       monthday: [''],
       EndDate: ['']    
     });
-
+    this.filteredOptions = this.template.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
 
   }
-
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.campagnes.filter(campagne => campagne.toLowerCase().indexOf(filterValue) === 0);
+  }
 }
 

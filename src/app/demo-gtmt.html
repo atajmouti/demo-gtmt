@@ -46,14 +46,18 @@
 						<!-- Campagne Template -->
 						<mat-grid-tile colspan="2" rowspan="1">
 							<mat-form-field>
-								<mat-label>Utiliser une campagne existante pour initier les paramètres</mat-label>
-								<mat-select formControlName="template" name="template">
-									<mat-option>None</mat-option>
-									<mat-option *ngFor="let campagne of campagnes" [value]="campagne.name">
-										{{campagne.name}}
+								<input type="text"
+                  placeholder="Utiliser une campagne existante pour initier les paramètres"
+                  matInput
+                  [formControl]="template"
+                  [matAutocomplete]="auto">
+								<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+									<mat-option *ngFor="let campagne of campagnes | async" [value]="campagne">
+										{{campagne}}
 									</mat-option>
-								</mat-select>
+								</mat-autocomplete>
 							</mat-form-field>
+
 						</mat-grid-tile>
 
 						<mat-grid-tile colspan="2" rowspan="1">
