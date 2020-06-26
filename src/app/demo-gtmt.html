@@ -1,162 +1,164 @@
 <!-- Header  -->
 <mat-toolbar class="gtmt-header">
 
-  <mat-grid-list cols="6" rowHeight="80px">
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-icon class="gtmt-logo" svgIcon="logolp_part"></mat-icon>
-    </mat-grid-tile>
+	<mat-grid-list cols="6" rowHeight="80px">
+		<mat-grid-tile colspan="1" rowspan="1">
+			<!-- <mat-icon class="gtmt-logo" svgIcon="logolp_part"></mat-icon> -->
+			<img alt="Eloqua Logo" style="width: 160px;" src="https://cdn.jsdelivr.net/gh/atajmouti/demo-gtmt@master/src/assets/gtmt-logo.png" />
 
-    <mat-grid-tile colspan="4" rowspan="1">
-      <h1>
-        GTMT > Création campagne
-      </h1>
-    </mat-grid-tile>
+		</mat-grid-tile>
 
-    <mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
-      <div class="gtmt-button-container">
-        <button mat-icon-button>
+			<mat-grid-tile colspan="4" rowspan="1">
+				<h1>
+					GTMT > Création campagne
+				</h1>
+			</mat-grid-tile>
+
+			<mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
+				<div class="gtmt-button-container">
+					<button mat-icon-button>
           Aide
           <mat-icon>help_outline</mat-icon>
         </button>
-      </div>
-    </mat-grid-tile>
+				</div>
+			</mat-grid-tile>
 
 
 
-  </mat-grid-list>
+	</mat-grid-list>
 
 
 </mat-toolbar>
 
 <!-- Content -->
 <mat-sidenav-container class="gtmt-sidenav-container ">
-  <mat-sidenav-content>
+	<mat-sidenav-content>
 
-    <mat-horizontal-stepper [linear]="isLinear" #stepper color="accent">
-      <mat-step [stepControl]="form">
-        <form [formGroup]="form">
-          <ng-template matStepLabel>
-            Identification de la campagne courrier
-          </ng-template>
-          <mat-grid-list cols="5" rowHeight="60px">
-            <!-- Nom de la campgane courrier -->
-            <mat-grid-tile colspan="1" rowspan="1">
-              <mat-form-field>
-                <mat-label>Nom de la campgane courrier</mat-label>
-                <input matInput placeholder="Nom de la campgane courrier" formControlName="name" required>
+		<mat-horizontal-stepper [linear]="isLinear" #stepper color="accent">
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template matStepLabel>
+						Identification de la campagne courrier
+					</ng-template>
+					<mat-grid-list cols="5" rowHeight="60px">
+						<!-- Nom de la campgane courrier -->
+						<mat-grid-tile colspan="1" rowspan="1">
+							<mat-form-field>
+								<mat-label>Nom de la campgane courrier</mat-label>
+								<input matInput placeholder="Nom de la campgane courrier" formControlName="name" required>
               </mat-form-field>
-            </mat-grid-tile>
+						</mat-grid-tile>
 
-            <!-- Campagne Template -->
-            <mat-grid-tile colspan="2" rowspan="1">
-              <mat-form-field>
-                <mat-label>Utiliser une campagne existante pour initier les paramètres</mat-label>
-                <mat-select formControlName="template" name="template">
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let campagne of campagnes" [value]="campagne.name">
-                    {{campagne.name}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-grid-tile>
+						<!-- Campagne Template -->
+						<mat-grid-tile colspan="2" rowspan="1">
+							<mat-form-field>
+								<mat-label>Utiliser une campagne existante pour initier les paramètres</mat-label>
+								<mat-select formControlName="template" name="template">
+									<mat-option>None</mat-option>
+									<mat-option *ngFor="let campagne of campagnes" [value]="campagne.name">
+										{{campagne.name}}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</mat-grid-tile>
 
-            <mat-grid-tile colspan="2" rowspan="1">
-            </mat-grid-tile>
+						<mat-grid-tile colspan="2" rowspan="1">
+						</mat-grid-tile>
 
-            <!-- Description -->
-            <mat-grid-tile colspan="3" rowspan="4">
-              <mat-form-field appearance="outline">
-                <mat-label>Description</mat-label>
-                <textarea matInput formControlName="description" placeholder="Description" cdkTextareaAutosize
+						<!-- Description -->
+						<mat-grid-tile colspan="3" rowspan="4">
+							<mat-form-field appearance="outline">
+								<mat-label>Description</mat-label>
+								<textarea matInput formControlName="description" placeholder="Description" cdkTextareaAutosize
                   cdkAutosizeMinRows="5"></textarea>
-              </mat-form-field>
-            </mat-grid-tile>
+							</mat-form-field>
+						</mat-grid-tile>
 
-          </mat-grid-list>
+					</mat-grid-list>
 
-          <div class="gtmt-flex-row">
-            <button mat-raised-button color="primary" matStepperNext>
+					<div class="gtmt-flex-row">
+						<button mat-raised-button color="primary" matStepperNext>
               <mat-icon>keyboard_arrow_right</mat-icon>
               Etape suivante
             </button>
-          </div>
+					</div>
 
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="form">
-        <form [formGroup]="form">
-          <ng-template color="primary" matStepLabel>Fréquence d'envoi</ng-template>
-          <mat-grid-list cols="12" rowHeight="40px">
-            <mat-radio-group>
-              <mat-grid-tile colspan="6" rowspan="1">
-                <mat-radio-button class="example-margin" value="oneshot">
-                  Une seule fois
-                </mat-radio-button>
-              </mat-grid-tile>
+				</form>
+			</mat-step>
+			<mat-step [stepControl]="form">
+				<form [formGroup]="form">
+					<ng-template color="primary" matStepLabel>Fréquence d'envoi</ng-template>
+					<mat-grid-list cols="12" rowHeight="40px">
+						<mat-radio-group>
+							<mat-grid-tile colspan="6" rowspan="1">
+								<mat-radio-button class="example-margin" value="oneshot">
+									Une seule fois
+								</mat-radio-button>
+							</mat-grid-tile>
 
-              <mat-grid-tile colspan="6" rowspan="1">
-                <mat-radio-button class="example-margin" value="recurrent">
-                  Récurrent
-                </mat-radio-button>
-              </mat-grid-tile>
-            </mat-radio-group>
-          </mat-grid-list>
-          <mat-grid-list cols="25" rowHeight="10px">
-            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Date et heure de lancement</mat-label>
-                    <input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date et heure de lancementn">
-                    <mat-datepicker-toggle matSuffix [for]="startdatePicker"></mat-datepicker-toggle>
-                    <mat-datepicker #startdatePicker></mat-datepicker>
-                  </mat-form-field>                            
-            </mat-grid-tile>
+							<mat-grid-tile colspan="6" rowspan="1">
+								<mat-radio-button class="example-margin" value="recurrent">
+									Récurrent
+								</mat-radio-button>
+							</mat-grid-tile>
+						</mat-radio-group>
+					</mat-grid-list>
+					<mat-grid-list cols="25" rowHeight="10px">
+						<mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
+							<mat-form-field appearance="outline">
+								<mat-label>Date et heure de lancement</mat-label>
+								<input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date et heure de lancementn">
+								<mat-datepicker-toggle matSuffix [for]="startdatePicker"></mat-datepicker-toggle>
+								<mat-datepicker #startdatePicker></mat-datepicker>
+							</mat-form-field>
+						</mat-grid-tile>
 
-            <mat-grid-tile  colspan="1" rowspan="8">
-            </mat-grid-tile>
+						<mat-grid-tile colspan="1" rowspan="8">
+						</mat-grid-tile>
 
-            <mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
+						<mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
 
-              <mat-grid-list cols="4" rowHeight="10px">
+							<mat-grid-list cols="4" rowHeight="10px">
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
-                  <mat-radio-button value="Hebdomadaire">
-                    Hebdomadaire
-                  </mat-radio-button>
-                </mat-grid-tile>
+								<mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
+									<mat-radio-button value="Hebdomadaire">
+										Hebdomadaire
+									</mat-radio-button>
+								</mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
-                  <mat-radio-button *ngFor="let day of days" value="day">
-                    {{day}}
-                  </mat-radio-button>
-                </mat-grid-tile>
+								<mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
+									<mat-radio-button *ngFor="let day of days" value="day">
+										{{day}}
+									</mat-radio-button>
+								</mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
-                  <mat-radio-button value="Mensuel">
-                    Mensuel
-                  </mat-radio-button>
-                </mat-grid-tile>
+								<mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="15">
+									<mat-radio-button value="Mensuel">
+										Mensuel
+									</mat-radio-button>
+								</mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
-                  <mat-radio-button value="Mensuel">
-                    Le premier Lundi du mois
-                  </mat-radio-button>
-                  <mat-radio-button value="Mensuel">
-                    Le dernier Lundi du mois
-                  </mat-radio-button>
-                </mat-grid-tile>
+								<mat-grid-tile class="gtmt-flex-col" colspan="2" rowspan="15">
+									<mat-radio-button value="Mensuel">
+										Le premier Lundi du mois
+									</mat-radio-button>
+									<mat-radio-button value="Mensuel">
+										Le dernier Lundi du mois
+									</mat-radio-button>
+								</mat-grid-tile>
 
-                <mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="8">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Date de fin</mat-label>
-                    <input matInput [matDatepicker]="EndDatePicker" formControlName="EndDate" placeholder="Date de fin">
-                    <mat-datepicker-toggle matSuffix [for]="EndDatePicker"></mat-datepicker-toggle>
-                    <mat-datepicker #EndDatePicker></mat-datepicker>
-                  </mat-form-field>
-                </mat-grid-tile>
+								<mat-grid-tile class="gtmt-flex-start" colspan="2" rowspan="8">
+									<mat-form-field appearance="outline">
+										<mat-label>Date de fin</mat-label>
+										<input matInput [matDatepicker]="EndDatePicker" formControlName="EndDate" placeholder="Date de fin">
+										<mat-datepicker-toggle matSuffix [for]="EndDatePicker"></mat-datepicker-toggle>
+										<mat-datepicker #EndDatePicker></mat-datepicker>
+									</mat-form-field>
+								</mat-grid-tile>
 
-              </mat-grid-list>
+							</mat-grid-list>
 
-              <!-- <mat-radio-group>
+							<!-- <mat-radio-group>
                 <mat-radio-button class="example-margin" value="weekly">
                   Hebdomadaire
                 </mat-radio-button>
@@ -166,54 +168,60 @@
               </mat-radio-group> -->
 
 
-            </mat-grid-tile>
+						</mat-grid-tile>
 
 
 
 
-          </mat-grid-list>
+					</mat-grid-list>
 
-          <div class="gtmt-flex-row">
-            <button mat-raised-button matStepperPrevious>
+					<div class="gtmt-flex-row">
+						<button mat-raised-button matStepperPrevious>
               <mat-icon>keyboard_arrow_left</mat-icon>
               Etape précédente
             </button>
-            <button mat-raised-button matStepperNext>
+						<button mat-raised-button matStepperNext>
               Etape suivante
               <mat-icon>keyboard_arrow_right
               </mat-icon>
             </button>
-          </div>
+					</div>
 
-        </form>
+				</form>
 
 
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Fin</ng-template>
-        <p>You are now done.</p>
-        <div class="gtmt-flex-row">
-          <button mat-raised-button matStepperPrevious>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>Fin</ng-template>
+				<p>You are now done.</p>
+				<div class="gtmt-flex-row">
+					<button mat-raised-button matStepperPrevious>
             <mat-icon>keyboard_arrow_left</mat-icon>
             Etape précédente
           </button>
-          <button mat-raised-button (click)="stepper.reset()">
+					<button mat-raised-button (click)="stepper.reset()">
             Réinitialiser
             <mat-icon> format_color_reset</mat-icon>
           </button>
-        </div>
+				</div>
 
-      </mat-step>
-    </mat-horizontal-stepper>
+			</mat-step>
+		</mat-horizontal-stepper>
 
 
-  </mat-sidenav-content>
+	</mat-sidenav-content>
 
 </mat-sidenav-container>
 
 <!-- Footer -->
 <mat-toolbar class="gtmt-footer">
-  <div class="blx-navbar-logo">
-    <img alt="Eloqua Logo" style="width: 100px;" src="https://cdn.jsdelivr.net/gh/atajmouti/demo-gtmt@master/src/assets/eloqua.png" />
-  </div>
+	<mat-grid-list cols="2" rowHeight="80px">
+		<mat-grid-tile class="gtmt-flex-start" colspan="1" rowspan="1">
+			<mat-icon class="laposte-logo" svgIcon="logolp_part"></mat-icon>
+		</mat-grid-tile>
+
+		<mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
+			<img alt="Eloqua Logo" style="width: 100px;" src="https://cdn.jsdelivr.net/gh/atajmouti/demo-gtmt@master/src/assets/eloqua.png" />
+		</mat-grid-tile>
+	</mat-grid-list>
 </mat-toolbar>
