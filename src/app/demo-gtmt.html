@@ -4,13 +4,13 @@
 	<mat-grid-list cols="6" rowHeight="80px">
 		<mat-grid-tile colspan="1" rowspan="1">
 			<!-- <mat-icon class="gtmt-logo" svgIcon="logolp_part"></mat-icon> -->
-			<img alt="Eloqua Logo" style="width: 160px;" src="https://cdn.jsdelivr.net/gh/atajmouti/demo-gtmt@master/src/assets/gtmt-logo.png" />
+			<img class="gtmt-logo" alt="Eloqua Logo" style="width: 160px;" src="https://cdn.jsdelivr.net/gh/atajmouti/demo-gtmt@master/src/assets/gtmt-logo.png" />
 
 		</mat-grid-tile>
 
 			<mat-grid-tile colspan="4" rowspan="1">
 				<h1>
-					GTMT > Création campagne
+					Conception de la campagne
 				</h1>
 			</mat-grid-tile>
 
@@ -38,7 +38,7 @@
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
-						Identification de la campagne courrier
+						Création de la campagne
 					</ng-template>
 					<mat-grid-list cols="5" rowHeight="60px">
 						<!-- Nom de la campgane courrier -->
@@ -106,8 +106,8 @@
 					<mat-grid-list cols="25" rowHeight="10px">
 						<mat-grid-tile class="gtmt-box" colspan="12" rowspan="36">
 							<mat-form-field appearance="outline">
-								<mat-label>Date et heure de lancement</mat-label>
-								<input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date et heure de lancementn">
+								<mat-label>Date remise imprimeur</mat-label>
+								<input matInput [matDatepicker]="startdatePicker" formControlName="startdate" placeholder="Date remise imprimeur">
 								<mat-datepicker-toggle matSuffix [for]="startdatePicker"></mat-datepicker-toggle>
 								<mat-datepicker #startdatePicker></mat-datepicker>
 							</mat-form-field>
