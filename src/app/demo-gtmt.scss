@@ -18,7 +18,7 @@ h1 {
     left: 0;
     right: 0;
     display: flex;
-    background-color: #FFE582;
+    background-color: #F1F4F8 // #FFE582;
 }
 
 .gtmt-header .gtmt-logo {
@@ -191,7 +191,16 @@ form {
 
 :host ::ng-deep .gtmt-flex-start .mat-figure {
     justify-content: flex-start;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
+.gtmt-footer .laposte-logo {
+    height: 160px;
+    width: 160px;
+}
 
+:host ::ng-deep .gtmt-footer .gtmt-flex-end .mat-figure {
+    justify-content: flex-end;
+    margin-right: 10px;
+
+}
