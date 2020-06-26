@@ -1,6 +1,5 @@
 <!-- Header  -->
 <mat-toolbar class="gtmt-header">
-
 	<mat-grid-list cols="6" rowHeight="80px">
 		<mat-grid-tile colspan="1" rowspan="1">
 			<!-- <mat-icon class="gtmt-logo" svgIcon="logolp_part"></mat-icon> -->
@@ -22,19 +21,14 @@
         </button>
 				</div>
 			</mat-grid-tile>
-
-
-
 	</mat-grid-list>
-
-
 </mat-toolbar>
 
 <!-- Content -->
 <mat-sidenav-container class="gtmt-sidenav-container ">
 	<mat-sidenav-content>
-
 		<mat-horizontal-stepper [linear]="isLinear" #stepper color="accent">
+			<!-- Création de la campagne -->
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template matStepLabel>
@@ -75,16 +69,16 @@
 						</mat-grid-tile>
 
 					</mat-grid-list>
-
 					<div class="gtmt-flex-row">
 						<button mat-raised-button color="primary" matStepperNext>
               <mat-icon>keyboard_arrow_right</mat-icon>
               Etape suivante
             </button>
 					</div>
-
 				</form>
 			</mat-step>
+
+			<!-- Fréquence d'envoi -->
 			<mat-step [stepControl]="form">
 				<form [formGroup]="form">
 					<ng-template color="primary" matStepLabel>Fréquence d'envoi</ng-template>
@@ -158,59 +152,52 @@
 
 							</mat-grid-list>
 
-							<!-- <mat-radio-group>
-                <mat-radio-button class="example-margin" value="weekly">
-                  Hebdomadaire
-                </mat-radio-button>
-                <mat-radio-button class="example-margin" value="monthly">
-                  Mensuel
-                </mat-radio-button>
-              </mat-radio-group> -->
-
-
 						</mat-grid-tile>
-
-
-
-
 					</mat-grid-list>
 
-					<div class="gtmt-flex-row">
-						<button mat-raised-button matStepperPrevious>
+					<mat-grid-list cols="2" rowHeight="70px">
+						<mat-grid-tile colspan="1" rowspan="1">
+							<button mat-raised-button matStepperPrevious>
               <mat-icon>keyboard_arrow_left</mat-icon>
               Etape précédente
             </button>
-						<button mat-raised-button matStepperNext>
+						</mat-grid-tile>
+						<mat-grid-tile colspan="1" rowspan="1">
+							<button mat-raised-button matStepperNext>
               Etape suivante
               <mat-icon>keyboard_arrow_right
               </mat-icon>
             </button>
-					</div>
-
+						</mat-grid-tile>
+					</mat-grid-list>
 				</form>
 
 
 			</mat-step>
+
+			<!-- Fin -->
 			<mat-step>
 				<ng-template matStepLabel>Fin</ng-template>
 				<p>You are now done.</p>
-				<div class="gtmt-flex-row">
-					<button mat-raised-button matStepperPrevious>
-            <mat-icon>keyboard_arrow_left</mat-icon>
-            Etape précédente
-          </button>
-					<button mat-raised-button (click)="stepper.reset()">
-            Réinitialiser
-            <mat-icon> format_color_reset</mat-icon>
-          </button>
-				</div>
 
+				<mat-grid-list cols="2" rowHeight="70px">
+					<mat-grid-tile colspan="1" rowspan="1">
+						<button mat-raised-button matStepperPrevious>
+              <mat-icon>keyboard_arrow_left</mat-icon>
+              Etape précédente
+            </button>
+					</mat-grid-tile>
+					<mat-grid-tile colspan="1" rowspan="1">
+						<button mat-raised-button (click)="stepper.reset()">
+              Réinitialiser
+              <mat-icon>format_color_reset
+              </mat-icon>
+            </button>
+					</mat-grid-tile>
+				</mat-grid-list>
 			</mat-step>
 		</mat-horizontal-stepper>
-
-
 	</mat-sidenav-content>
-
 </mat-sidenav-container>
 
 <!-- Footer -->
