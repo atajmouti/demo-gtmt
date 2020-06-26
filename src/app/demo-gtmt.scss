@@ -113,11 +113,11 @@ form {
     display: flex;
     justify-content: center;
     .mat-icon-button  {
-        color: black;
+        color: #e91e63;
     }
     mat-icon {
         font-size: 32px;
-        color: black
+        color: #e91e63
     }
 }
 
@@ -144,6 +144,10 @@ form {
     background-color: #e91e63;
 }
 
+:host ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: #e91e63;
+}
+
 :host ::ng-deep .mat-step-icon {
     height: 36px;
     width: 36px;
@@ -152,6 +156,10 @@ form {
 :host ::ng-deep .mat-warn .mat-input-element,
 .mat-form-field-invalid .mat-input-element {
     caret-color: #e91e63;
+}
+
+:host ::ng-deep.mat-form-field.mat-form-field-invalid .mat-form-field-ripple, .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
+    background-color: #e91e63;
 }
 
 :host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
