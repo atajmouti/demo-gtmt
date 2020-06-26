@@ -34,20 +34,20 @@
 					<ng-template matStepLabel>
 						Création de la campagne
 					</ng-template>
-					<mat-grid-list cols="9" rowHeight="0px">
+					<mat-grid-list cols="9" rowHeight="40px">
 						<!-- Nom de la campgane courrier -->
-						<mat-grid-tile colspan="5" rowspan="2">
+						<mat-grid-tile colspan="9" rowspan="2">
 							<mat-form-field appearance="outline">
 								<mat-label>Nom de la campgane courrier</mat-label>
 								<input matInput placeholder="Nom de la campgane courrier" formControlName="name" required>
               </mat-form-field>
 						</mat-grid-tile>
 
-						<mat-grid-tile colspan="4" rowspan="1">
-						</mat-grid-tile>
+						<!-- <mat-grid-tile colspan="4" rowspan="1">
+						</mat-grid-tile> -->
 
 						<!-- Campagne Template -->
-						<mat-grid-tile colspan="5" rowspan="2">
+						<mat-grid-tile colspan="9" rowspan="2">
 							<mat-form-field appearance="outline">
 								<mat-label>Utiliser une campagne existante pour initier les paramètres
 
@@ -66,28 +66,31 @@
 
 						</mat-grid-tile>
 
-						<mat-grid-tile colspan="4" rowspan="1">
-						</mat-grid-tile>
+						<!-- <mat-grid-tile colspan="4" rowspan="1">
+						</mat-grid-tile> -->
 
 						<!-- Description -->
-						<mat-grid-tile colspan="5" rowspan="4">
+						<mat-grid-tile colspan="9" rowspan="4">
 							<mat-form-field appearance="outline">
 								<mat-label>Description</mat-label>
 								<textarea matInput formControlName="description" placeholder="Description" cdkTextareaAutosize
                   cdkAutosizeMinRows="5"></textarea>
 							</mat-form-field>
 						</mat-grid-tile>
-
+<!-- 
 				    <mat-grid-tile colspan="4" rowspan="2">
-						</mat-grid-tile>
+						</mat-grid-tile> -->
 
 					</mat-grid-list>
-					<div class="gtmt-flex-row">
-						<button mat-raised-button color="primary" matStepperNext>
-              <mat-icon>keyboard_arrow_right</mat-icon>
+					<mat-grid-list cols="12" rowHeight="70px">
+						<mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
+							<button mat-raised-button matStepperNext>
               Etape suivante
+              <mat-icon>keyboard_arrow_right
+              </mat-icon>
             </button>
-					</div>
+						</mat-grid-tile>
+					</mat-grid-list>
 				</form>
 			</mat-step>
 
@@ -169,13 +172,13 @@
 					</mat-grid-list>
 
 					<mat-grid-list cols="2" rowHeight="70px">
-						<mat-grid-tile colspan="1" rowspan="1">
+						<mat-grid-tile class="gtmt-flex-start" colspan="1" rowspan="1">
 							<button mat-raised-button matStepperPrevious>
               <mat-icon>keyboard_arrow_left</mat-icon>
               Etape précédente
             </button>
 						</mat-grid-tile>
-						<mat-grid-tile colspan="1" rowspan="1">
+						<mat-grid-tile class="gtmt-flex-end" colspan="1" rowspan="1">
 							<button mat-raised-button matStepperNext>
               Etape suivante
               <mat-icon>keyboard_arrow_right

@@ -196,8 +196,15 @@ button.mat-raised-button:hover {
     width: 160px;
 }
 
-:host ::ng-deep .gtmt-footer .gtmt-flex-end .mat-figure {
+:host ::ng-deep .gtmt-flex-end .mat-figure {
     justify-content: flex-end;
     margin-right: 10px;
 
+}
+
+
+.mat-button, .mat-raised-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button, .mat-fab, .mat-mini-fab {
+    font-family: Lato Regular;
+    font-size: 16px;
+    font-weight: 900;
 }
